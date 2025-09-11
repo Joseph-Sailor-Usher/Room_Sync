@@ -7,6 +7,11 @@ Enable developers to add matchmaking and node sync to their Godot projects with 
 ## Values
 Affordability, Performance, Low-Complexity.
 
+## Inspiration
+- The Tribes Engine Networking Model (Mark Frohnmayer, Tom Gift)
+- (Original Paper)[https://www.gamedevs.org/uploads/tribes-networking-model.pdf]
+- 
+
 ## Consideration of Implementation Options
 - Pure Directory
 - Directory + UDP Hole-Punch (STUN)
