@@ -11,12 +11,14 @@ Affordability, Performance, Low-Complexity.
 General Interest
 - [A Survey and Taxonomy of Latency Compensation Techniques for Network Computer Games](https://dl.acm.org/doi/10.1145/3519023?utm_source=chatgpt.com)
 - [Comparing Interest Management Algorithm for Massively Multiplayer Games](https://dl.acm.org/doi/10.1145/1230040.1230069?utm_source=chatgpt.com)
+- [Networked Physics in Virtual Reality: Unity Sample](https://github.com/fbsamples/oculus-networked-physics-sample)
+- [Networked Physics in Virtual Reality (Article)](https://gafferongames.com/post/networked_physics_in_virtual_reality/)
 
 The Tribes Engine Networking Model (Mark Frohnmayer, Tom Gift)
 - [Original Paper](https://www.gamedevs.org/uploads/tribes-networking-model.pdf)
 - [Netcode Architectures Part 4: Tribes](https://www.snapnet.dev/blog/netcode-architectures-part-4-tribes/)
 
-Networking for the Game Franchise Halo
+Networking for the Game Halo Franchise
 - [I Shot You First: Networking the Gameplay of Halo: Reach](https://www.youtube.com/watch?v=h47zZrqjgLc)
 - [GDC Session Summary: Halo Networking](https://www.wolfire.com/blog/2011/03/GDC-Session-Summary-Halo-networking/)
 - [A Traffic Model for the Xbox Game Halo 2](https://www.wolfire.com/blog/2011/03/GDC-Session-Summary-Halo-networking/)
