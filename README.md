@@ -9,7 +9,7 @@ Affordability, Performance, Low-Complexity.
 
 ## Inspiration
 - The Tribes Engine Networking Model (Mark Frohnmayer, Tom Gift)
-- (Original Paper)[https://www.gamedevs.org/uploads/tribes-networking-model.pdf]
+- [Original Paper](https://www.gamedevs.org/uploads/tribes-networking-model.pdf)
 - 
 
 ## Consideration of Implementation Options
