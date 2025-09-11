@@ -9,8 +9,12 @@ Affordability, Fairness, Performance, Low-Complexity.
 
 ## Inspiration
 General Interest
-- [A Survey and Taxonomy of Latency Compensation Techniques for Network Computer Games](https://dl.acm.org/doi/10.1145/3519023?utm_source=chatgpt.com)
-- [Comparing Interest Management Algorithm for Massively Multiplayer Games](https://dl.acm.org/doi/10.1145/1230040.1230069?utm_source=chatgpt.com)
+- [Steam Matchmaking & Lobbies](https://partner.steamgames.com/doc/features/multiplayer/matchmaking?)
+- [Photon Engine](https://doc.photonengine.com/realtime/current/lobby-and-matchmaking/matchmaking-and-lobby?)
+- [WebRTC Data Channels](https://www.ietf.org/proceedings/92/slides/slides-92-taps-2.pdf?)
+- [TCP's Evolution : From Secure Networks to Gaming Exploits in Halo 2](https://www.ietf.org/proceedings/92/slides/slides-92-taps-2.pdf?)
+- [A Survey and Taxonomy of Latency Compensation Techniques for Network Computer Games](https://dl.acm.org/doi/10.1145/3519023?)
+- [Comparing Interest Management Algorithm for Massively Multiplayer Games](https://dl.acm.org/doi/10.1145/1230040.1230069?)
 - [Networked Physics in Virtual Reality: Unity Sample](https://github.com/fbsamples/oculus-networked-physics-sample)
 - [Networked Physics in Virtual Reality (Article)](https://gafferongames.com/post/networked_physics_in_virtual_reality/)
 
@@ -25,13 +29,13 @@ Networking for the Game Halo Franchise
 - [Running the Halo Multiplayer Experience at 60fps: A Technical Art Perspective](https://www.youtube.com/watch?v=65_lBJbAxnk)
 
 Networking for the Half Life Franchise
-- [Latency Compensating Methods in Client/Server In-game Protocol Design and Optimization](https://www.gamedevs.org/uploads/latency-compensation-in-client-server-protocols.pdf?utm_source=chatgpt.com)
+- [Latency Compensating Methods in Client/Server In-game Protocol Design and Optimization](https://www.gamedevs.org/uploads/latency-compensation-in-client-server-protocols.pdf?)
 
 Networking for the DOOM Franchise
-- [The DOOM III Network Architecture](https://mrelusive.com/publications/papers/The-DOOM-III-Network-Architecture.pdf?utm_source=chatgpt.com)
+- [The DOOM III Network Architecture](https://mrelusive.com/publications/papers/The-DOOM-III-Network-Architecture.pdf?)
 
 Networking for the Overwatch Franchise
-- [Overwatch Gameplay Architecture and Netcode](https://www.gdcvault.com/play/1024001/-Overwatch-Gameplay-Architecture-and?utm_source=chatgpt.com)
+- [Overwatch Gameplay Architecture and Netcode](https://www.gdcvault.com/play/1024001/-Overwatch-Gameplay-Architecture-and?)
 
 
 ## Consideration of Implementation Options
