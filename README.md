@@ -9,6 +9,7 @@ Affordability, Performance, Low-Complexity.
 
 ## Inspiration
 [A Survey and Taxonomy of Latency Compensation Techniques for Network Computer Games](https://dl.acm.org/doi/10.1145/3519023?utm_source=chatgpt.com)
+
 The Tribes Engine Networking Model (Mark Frohnmayer, Tom Gift)
 - [Original Paper](https://www.gamedevs.org/uploads/tribes-networking-model.pdf)
 - [Netcode Architectures Part 4: Tribes](https://www.snapnet.dev/blog/netcode-architectures-part-4-tribes/)
