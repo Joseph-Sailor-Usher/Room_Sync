@@ -2,7 +2,7 @@
 Room-based matchmaking &amp; node sync with priority and ownership for Godot.
 
 ## Vision
-Enable developers to add matchmaking and node sync to their Godot projects with minimal setup.
+Enable developers to add matchmaking and node sync to their Godot projects with minimal setup. For applications spanning titles like [_Among Us_](https://www.innersloth.com/games/among-us/) to titles similar to [_The Finals_](https://www.reachthefinals.com/).
 
 ## Values
 Affordability, Fairness, Performance, Low-Complexity.
