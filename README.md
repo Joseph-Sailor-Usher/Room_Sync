@@ -13,16 +13,19 @@ Affordability, Performance, Low-Complexity.
 The Tribes Engine Networking Model (Mark Frohnmayer, Tom Gift)
 - [Original Paper](https://www.gamedevs.org/uploads/tribes-networking-model.pdf)
 - [Netcode Architectures Part 4: Tribes](https://www.snapnet.dev/blog/netcode-architectures-part-4-tribes/)
+
 Networking for the Game Franchise Halo
 - [I Shot You First: Networking the Gameplay of Halo: Reach](https://www.youtube.com/watch?v=h47zZrqjgLc)
 - [GDC Session Summary: Halo Networking](https://www.wolfire.com/blog/2011/03/GDC-Session-Summary-Halo-networking/)
 - [A Traffic Model for the Xbox Game Halo 2](https://www.wolfire.com/blog/2011/03/GDC-Session-Summary-Halo-networking/)
 - [Running the Halo Multiplayer Experience at 60fps: A Technical Art Perspective](https://www.youtube.com/watch?v=65_lBJbAxnk)
+
 Networking for the Half Life Franchise
 - [Latency Compensating Methods in Client/Server In-game Protocol Design and Optimization](https://www.gamedevs.org/uploads/latency-compensation-in-client-server-protocols.pdf?utm_source=chatgpt.com)
+
 Networking for the DOOM Franchise
 - [The DOOM III Network Architecture](https://mrelusive.com/publications/papers/The-DOOM-III-Network-Architecture.pdf?utm_source=chatgpt.com)
-- 
+
 
 ## Consideration of Implementation Options
 - Pure Directory
