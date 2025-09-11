@@ -8,8 +8,9 @@ Enable developers to add matchmaking and node sync to their Godot projects with 
 Affordability, Performance, Low-Complexity.
 
 ## Inspiration
-[A Survey and Taxonomy of Latency Compensation Techniques for Network Computer Games](https://dl.acm.org/doi/10.1145/3519023?utm_source=chatgpt.com)
-[Comparing Interest Management Algorithm for Massively Multiplayer Games](https://dl.acm.org/doi/10.1145/1230040.1230069?utm_source=chatgpt.com)
+General Interest
+- [A Survey and Taxonomy of Latency Compensation Techniques for Network Computer Games](https://dl.acm.org/doi/10.1145/3519023?utm_source=chatgpt.com)
+- [Comparing Interest Management Algorithm for Massively Multiplayer Games](https://dl.acm.org/doi/10.1145/1230040.1230069?utm_source=chatgpt.com)
 
 The Tribes Engine Networking Model (Mark Frohnmayer, Tom Gift)
 - [Original Paper](https://www.gamedevs.org/uploads/tribes-networking-model.pdf)
