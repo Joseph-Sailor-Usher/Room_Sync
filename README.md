@@ -30,6 +30,9 @@ Networking for the Half Life Franchise
 Networking for the DOOM Franchise
 - [The DOOM III Network Architecture](https://mrelusive.com/publications/papers/The-DOOM-III-Network-Architecture.pdf?utm_source=chatgpt.com)
 
+Networking for the Overwatch Franchise
+- [Overwatch Gameplay Architecture and Netcode](https://www.gdcvault.com/play/1024001/-Overwatch-Gameplay-Architecture-and?utm_source=chatgpt.com)
+
 
 ## Consideration of Implementation Options
 - Pure Directory
@@ -40,22 +43,3 @@ Networking for the DOOM Franchise
 - Relay-Only Matchmaking (App-Level Relay, non-TURN)
 - Managed Platforms (Steamworks, Epic Online Services, PlayFab/Multiplay, Photon)
 
-
-
-## User stories
-- As a developer, I can follow a simple tutorial to set up network infrastructure and call the necessary functions in my client-side code to allow players to create, join, leave, and close rooms, and connect to other players in the same room and remove users from a room.
-- As a developer I can tell Room_Sync which nodes need to be STATIC, DYNAMIC, DYNAMIC_OWNED, set ownership in the editor or via script, and set networked priority of DYNAMIC and DYNAMiC_OWNED nodes in the editor or via script.
-
-## Feature Requirements
-### Matchmaking (Connection phase)
-- Create/Join/Leave/Close room via API; emits success/failure events.
-- Room codes: 4 characters of base-36 means ~1.5 million rooms, collision detection, capacity limit, reasoned errors.
-- Join returns host endpoint; client auto-connects; retries + timeout
-### Session (Gameplay phase)
-- Host-authoritative transport (ENet/WbSocket), peers connect to host.
-- Player roster: join/leave notifications; remove player; set player's team.
-- Scene Manager owned by host: level, gametype, teams, start/end.
-### Node Sync (Metadata)
-- Behavior: STATIC, DYNAMIC, DYNAMIC_OWNED.
-- Priority: LOW, MEDIUM, HIGH
-- Prioritization Manager 
