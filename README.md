@@ -5,7 +5,7 @@ Room-based matchmaking &amp; node sync with priority and ownership for Godot.
 Enable developers to add matchmaking and node sync to their Godot projects with minimal setup.
 
 ## Values
-Affordability, Performance, Low-Complexity.
+Affordability, Fairness, Performance, Low-Complexity.
 
 ## Inspiration
 General Interest
