@@ -3,6 +3,7 @@ Clients learn each other’s public endpoints from a directory and connect direc
 Pros: Simple; zero relay cost.<br>
 Cons: Fails on many NATs; brittle across enterprise/campus/CGNAT (Needs ICE).<br>
 Why it struggles: Hole-punch is not universally reliable; certain NAT mappings break it (address/port-dependent).<br> TURN exists because of that.
+
 ## Ports & Protocols
 ``` mermaid
 flowchart TD
@@ -31,6 +32,7 @@ sequenceDiagram
 ```
 ## Limitations
 Pure directory implementations fail if users are behind symmetric/port-dependent NATs; campus/enterprise firewalls.
+
 
 # Directory + UDP Hole-Punch (STUN)
 Add STUN so peers discover their server-reflexive (public) address and try to punch through.<br>
@@ -78,6 +80,7 @@ sequenceDiagram
   A-->>B: gameplay packets
 ```
 
+
 # WebRTC Signaling (ICE with STUN; no TURN)
 What it is: Proper ICE candidate gathering/priority checks + DTLS/SCTP data channels, but you refuse to use relays.<br>
 Pros: Correct connection logic; faster with Trickle ICE; great APIs and libs (libwebrtc).<br>
@@ -112,6 +115,7 @@ flowchart TD
 
 ```
 
+
 # Hybrid: STUN first, TURN/Relay fallback
 What it is: Full ICE with both STUN and TURN enabled. If direct fails, relay via TURN.<br>
 Pros: Highest NAT success; you keep P2P latency where possible and pay for relay only on failures; privacy/IP shielding via relay.<br>
@@ -137,6 +141,7 @@ flowchart LR
   C1 -- relay path --> TURN1
   TURN1 -- relay path --> C2
 ```
+
 
 # Dedicated Game Server Per Room (Server-Authoritative)
 What it is: Clients connect to a room server that owns truth (hit reg, anti-cheat logic, physics arbitration).<br>
@@ -178,6 +183,7 @@ sequenceDiagram
   C->>GS: Auth with ticket
   GS-->>C: Welcome start tick stream (UDP)
 ```
+
 
 # Relay-Only Matchmaking (App-Level Relay, non-TURN)
 What it is: You build a custom relay/proxy (or use a vendor’s non-TURN relay) and force all traffic through it.<br>
