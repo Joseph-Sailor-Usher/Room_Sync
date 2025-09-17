@@ -4,7 +4,7 @@ Pros: Simple; zero relay cost.
 Cons: Fails on many NATs; brittle across enterprise/campus/CGNAT (Needs ICE).
 Why it struggles: Hole-punch is not universally reliable; certain NAT mappings break it (address/port-dependent). TURN exists because of that. 
 ``` mermaid
-flowchart LR
+flowchart TD
   subgraph Cloud
     MM[Directory / Matchmaker<br/>HTTPS+DB]
   end
@@ -26,7 +26,7 @@ sequenceDiagram
   MM-->>B: A's public IP:port
   A->>B: UDP SYN/first packet
   B->>A: UDP reply (session established)
-
+```
 
 # Directory + UDP Hole-Punch (STUN)
 Add STUN so peers discover their server-reflexive (public) address and try to punch through.
@@ -34,20 +34,22 @@ Pros: Cheap; often works; keeps latency low by staying P2P.
 Cons: Not a complete solution; still fails with stricter NATs/firewalls; you end up hand-rolling parts of ICE.
 Standards: STUN tells you your public IP:port, does keep-alives, and can check basic connectivity—but is not a full traversal solution. 
 ``` mermaid
-flowchart LR
+flowchart TD
   subgraph Cloud
     MM[Directory / Matchmaker]
     STUN1((STUN))
     STUN2((STUN))
   end
-  C1[Client A] -- Binding -> STUN1
-  C2[Client B] -- Binding -> STUN2
-  C1 -- HTTPS 443 --> MM
-  C2 -- HTTPS 443 --> MM
-  MM -- exchange srflx IP:ports --> C1
-  MM -- exchange srflx IP:ports --> C2
-  C1 <-. UDP hole-punch .-> C2
+  C1[Client A] -- "Binding" --> STUN1
+  C2[Client B] -- "Binding" --> STUN2
+  C1 -- "HTTPS 443" --> MM
+  C2 -- "HTTPS 443" --> MM
+  MM -- "exchange srflx IP:ports" --> C1
+  MM -- "exchange srflx IP:ports" --> C2
+  C1 -. "UDP hole-punch" .-> C2
+  C2 -. "UDP hole-punch" .-> C1
 ```
+
 
 ``` mermaid
 sequenceDiagram
@@ -77,29 +79,38 @@ Cons: You’ll still lose a non-trivial % of players behind hard NATs if you ref
 Use when: You want best-effort P2P with modern stack and can accept some drop-offs.
 Standards: ICE (RFC 8445) orchestrates host/srflx (STUN) checks; Trickle ICE improves setup time. 
 ``` mermaid
-flowchart LR
+flowchart TD
   subgraph Cloud
-    SIG[Signaling<br/>HTTPS/WSS + DB]
+    SIG[Signaling / HTTPS WSS + DB]
     STUN1((STUN))
     STUN2((STUN))
   end
-  C1[Client A (WebRTC)] -- WSS 443 --> SIG
-  C2[Client B (WebRTC)] -- WSS 443 --> SIG
+
+  C1[ClientA - WebRTC] -- WSS 443 --> SIG
+  C2[ClientB - WebRTC] -- WSS 443 --> SIG
+
   C1 -- ICE gather --> STUN1
   C2 -- ICE gather --> STUN2
-  SIG <--> C1
-  SIG <--> C2
-  C1 <-. ICE checks (UDP) .-> C2
-  C1 <--> C2:::dc
-  classDef dc stroke:#0aa,stroke-width:2px
+
+  %% Bidirectional ICE connectivity checks
+  C1 -. ICE checks (UDP) .-> C2
+  C2 -. ICE checks (UDP) .-> C1
+
+  %% Final data path (solid)
+  C1 ---|DataChannel - DTLS/SCTP| C2
+
+  %% This is the 7th edge (0-based index = 6)
+  linkStyle 6 stroke-width:3px,stroke:#0aa
+
 ```
 
 # Hybrid: STUN first, TURN/Relay fallback
 What it is: Full ICE with both STUN and TURN enabled. If direct fails, relay via TURN.
 Pros: Highest NAT success; you keep P2P latency where possible and pay for relay only on failures; privacy/IP shielding via relay.
-Cons: You must run/buy TURN; bandwidth $$ for relayed sessions.
+Cons: You must run/buy TURN; bandwidth for relayed sessions.
 Use when: Default recommendation for small–mid rooms (2–10); real-time titles that value reach + low OPEX.
 Standards: TURN is the IETF relay protocol designed to pair with ICE; modern spec is RFC 8656 (obsoletes 5766). Also consider consent freshness if you’re using WebRTC. 
+
 ``` mermaid
 flowchart LR
   subgraph Cloud
@@ -159,10 +170,10 @@ sequenceDiagram
 # Relay-Only Matchmaking (App-Level Relay, non-TURN)
 What it is: You build a custom relay/proxy (or use a vendor’s non-TURN relay) and force all traffic through it.
 Pros: Hides IPs; simpler client code than ICE; single place to meter/inspect traffic.
-Cons: All traffic pays the relay tax (latency + bandwidth $$); you reinvent congestion/reliability; no standards leverage.
+Cons: All traffic pays the relay tax (latency + bandwidth ); you reinvent congestion/reliability; no standards leverage.
 Use when: You want control and simplicity and can afford always-on relaying.
 ``` mermaid
-flowchart LR
+flowchart TD
   subgraph Cloud
     MM[Matchmaker]
     R1[[Relay Node A]]
