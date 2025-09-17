@@ -81,7 +81,7 @@ sequenceDiagram
 
 
 # WebRTC Signaling (ICE with STUN; no TURN)
-What it is: Proper ICE candidate gathering/priority checks + DTLS/SCTP data channels, but you refuse to use relays.<br>
+Proper ICE candidate gathering/priority checks + DTLS/SCTP data channels, but you refuse to use relays.<br>
 Pros: Correct connection logic; faster with Trickle ICE; great APIs and libs (libwebrtc).<br>
 Cons: You’ll still lose a non-trivial % of players behind hard NATs if you refuse TURN.<br>
 
@@ -114,7 +114,7 @@ flowchart TD
 
 
 # Hybrid: STUN first, TURN/Relay fallback
-What it is: Full ICE with both STUN and TURN enabled. If direct fails, relay via TURN.<br>
+Full ICE with both STUN and TURN enabled. If direct fails, relay via TURN.<br>
 TURN is the IETF relay protocol designed to pair with ICE.<br>
 Pros: Highest NAT success; you keep P2P latency where possible and pay for relay only on failures; privacy/IP shielding via relay.<br>
 Cons: You must run/buy TURN; bandwidth for relayed sessions.<br>
