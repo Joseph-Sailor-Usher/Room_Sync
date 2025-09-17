@@ -1,0 +1,8 @@
+# Implementation Options
+- Pure Directory
+- Directory + UDP Hole-Punch (STUN)
+- WebRTC Signaling (ICE with STUN; no TURN)
+- Hybrid: STUN first, TURN/Relay fallback
+- Dedicated Game Server Per Room (Server-Authoritative)
+- Relay-Only Matchmaking (App-Level Relay, non-TURN)
+- Managed Platforms (Steamworks, Epic Online Services, PlayFab/Multiplay, Photon)
