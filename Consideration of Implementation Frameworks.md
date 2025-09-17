@@ -16,6 +16,7 @@ flowchart TD
   C1 <-. UDP gameplay .-> C2
 ```
 
+## Connect Sequence (happy path)
 ``` mermaid
 sequenceDiagram
   participant A as Client A
