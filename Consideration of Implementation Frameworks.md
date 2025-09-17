@@ -164,7 +164,7 @@ sequenceDiagram
   MM->>GS: Allocate/start (if needed)
   MM-->>C: Connect info + session ticket
   C->>GS: Auth with ticket
-  GS-->>C: Welcome; start tick stream (UDP)
+  GS-->>C: Welcome; start tick stream - UDP
 ```
 
 # Relay-Only Matchmaking (App-Level Relay, non-TURN)
