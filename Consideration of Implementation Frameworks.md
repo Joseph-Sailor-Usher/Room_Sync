@@ -1,5 +1,5 @@
 # Pure Directory
-Clients learn each other’s public endpoints from a directory and connect directly (no STUN/TURN/ICE).
+Clients learn each other’s public endpoints from a directory and connect directly (no STUN/TURN/ICE).<br>
 Pros: Simple; zero relay cost.
 Cons: Fails on many NATs; brittle across enterprise/campus/CGNAT (Needs ICE).
 Why it struggles: Hole-punch is not universally reliable; certain NAT mappings break it (address/port-dependent). TURN exists because of that. 
