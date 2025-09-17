@@ -29,12 +29,16 @@ sequenceDiagram
   A->>B: UDP SYN/first packet
   B->>A: UDP reply (session established)
 ```
+## Limitations
+Pure directory implementations fail if users are behind symmetric/port-dependent NATs; campus/enterprise firewalls.
 
 # Directory + UDP Hole-Punch (STUN)
-Add STUN so peers discover their server-reflexive (public) address and try to punch through.
-Pros: Cheap; often works; keeps latency low by staying P2P.
-Cons: Not a complete solution; still fails with stricter NATs/firewalls; you end up hand-rolling parts of ICE.
-Standards: STUN tells you your public IP:port, does keep-alives, and can check basic connectivity—but is not a full traversal solution. 
+Add STUN so peers discover their server-reflexive (public) address and try to punch through.<br>
+Pros: Cheap; often works; keeps latency low by staying P2P.<br>
+Cons: Not a complete solution; still fails with stricter NATs/firewalls; you end up hand-rolling parts of ICE.<br>
+Standards: STUN tells you your public IP:port, does keep-alives, and can check basic connectivity—but is not a full traversal solution.
+
+## Ports & Protocols
 ``` mermaid
 flowchart TD
   subgraph Cloud
@@ -52,7 +56,7 @@ flowchart TD
   C2 -. "UDP hole-punch" .-> C1
 ```
 
-
+## Connect Sequence (hole-punch)
 ``` mermaid
 sequenceDiagram
   participant A as Client A
@@ -75,11 +79,13 @@ sequenceDiagram
 ```
 
 # WebRTC Signaling (ICE with STUN; no TURN)
-What it is: Proper ICE candidate gathering/priority checks + DTLS/SCTP data channels, but you refuse to use relays.
-Pros: Correct connection logic; faster with Trickle ICE; great APIs and libs (libwebrtc).
-Cons: You’ll still lose a non-trivial % of players behind hard NATs if you refuse TURN.
-Use when: You want best-effort P2P with modern stack and can accept some drop-offs.
-Standards: ICE (RFC 8445) orchestrates host/srflx (STUN) checks; Trickle ICE improves setup time. 
+What it is: Proper ICE candidate gathering/priority checks + DTLS/SCTP data channels, but you refuse to use relays.<br>
+Pros: Correct connection logic; faster with Trickle ICE; great APIs and libs (libwebrtc).<br>
+Cons: You’ll still lose a non-trivial % of players behind hard NATs if you refuse TURN.<br>
+Use when: You want best-effort P2P with modern stack and can accept some drop-offs.<br>
+Standards: ICE (RFC 8445) orchestrates host/srflx (STUN) checks; Trickle ICE improves setup time.
+
+## Ports & Protocols
 ``` mermaid
 flowchart TD
   subgraph Cloud
@@ -107,12 +113,13 @@ flowchart TD
 ```
 
 # Hybrid: STUN first, TURN/Relay fallback
-What it is: Full ICE with both STUN and TURN enabled. If direct fails, relay via TURN.
-Pros: Highest NAT success; you keep P2P latency where possible and pay for relay only on failures; privacy/IP shielding via relay.
-Cons: You must run/buy TURN; bandwidth for relayed sessions.
-Use when: Default recommendation for small–mid rooms (2–10); real-time titles that value reach + low OPEX.
+What it is: Full ICE with both STUN and TURN enabled. If direct fails, relay via TURN.<br>
+Pros: Highest NAT success; you keep P2P latency where possible and pay for relay only on failures; privacy/IP shielding via relay.<br>
+Cons: You must run/buy TURN; bandwidth for relayed sessions.<br>
+Use when: Default recommendation for small–mid rooms (2–10); real-time titles that value reach + low OPEX.<br>
 Standards: TURN is the IETF relay protocol designed to pair with ICE; modern spec is RFC 8656 (obsoletes 5766). Also consider consent freshness if you’re using WebRTC. 
 
+## Ports & Protocols
 ``` mermaid
 flowchart LR
   subgraph Cloud
@@ -132,11 +139,13 @@ flowchart LR
 ```
 
 # Dedicated Game Server Per Room (Server-Authoritative)
-What it is: Clients connect to a room server that owns truth (hit reg, anti-cheat logic, physics arbitration).
-Pros: Deterministic, cheat-resistant, easier QoS control; simpler client NAT story (clients dial out).
-Cons: Ongoing hosting cost; more backend engineering; you manage scaling/updates.
-Use when: Competitive games, larger rooms, authoritative sim required.
+What it is: Clients connect to a room server that owns truth (hit reg, anti-cheat logic, physics arbitration).<br>
+Pros: Deterministic, cheat-resistant, easier QoS control; simpler client NAT story (clients dial out).<br>
+Cons: Ongoing hosting cost; more backend engineering; you manage scaling/updates.<br>
+Use when: Competitive games, larger rooms, authoritative sim required.<br>
 Managed hosting: PlayFab Multiplayer Servers/Multiplay gives autoscaling, containerized builds, and allocation APIs. 
+
+## Ports & Protocols
 ``` mermaid
 flowchart LR
   subgraph Cloud
@@ -157,6 +166,7 @@ flowchart LR
   GS1 --> METRICS
 ```
 
+## Connect Sequence
 ``` mermaid
 sequenceDiagram
   participant C as Client
@@ -170,10 +180,12 @@ sequenceDiagram
 ```
 
 # Relay-Only Matchmaking (App-Level Relay, non-TURN)
-What it is: You build a custom relay/proxy (or use a vendor’s non-TURN relay) and force all traffic through it.
-Pros: Hides IPs; simpler client code than ICE; single place to meter/inspect traffic.
-Cons: All traffic pays the relay tax (latency + bandwidth ); you reinvent congestion/reliability; no standards leverage.
+What it is: You build a custom relay/proxy (or use a vendor’s non-TURN relay) and force all traffic through it.<br>
+Pros: Hides IPs; simpler client code than ICE; single place to meter/inspect traffic.<br>
+Cons: All traffic pays the relay tax (latency + bandwidth ); you reinvent congestion/reliability; no standards leverage.<br>
 Use when: You want control and simplicity and can afford always-on relaying.
+
+## Ports & Protocols
 ``` mermaid
 flowchart TD
   subgraph Cloud
