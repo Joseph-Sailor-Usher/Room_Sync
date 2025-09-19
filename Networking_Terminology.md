@@ -21,7 +21,7 @@ TCP — Reliable, ordered stream; simple but adds head-of-line blocking and late
 ENet — Thin UDP library offering channels, reliability, sequencing—good default for native Godot.<br>
 WebRTC (DataChannel) — Encrypted, UDP-like transport with ICE (STUN/TURN); works in browsers.<br>
 ICE — Interactive Connectivity Establishment: tries many candidate paths to connect peers.<br>
-STUN — Service that tells a client its public IP:port; helps UDP hole-punching.<br>
+STUN — Session Traversal Utilities for NAT is a service that tells a client its public IP:port; helps UDP hole-punching.<br>
 TURN — Relay server that forwards data when P2P fails (reliable but adds cost/latency).<br>
 Hole Punching — Technique to open matching NAT bindings so two peers can talk directly.<br>
 
