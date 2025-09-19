@@ -1,7 +1,7 @@
 # Glossary (Matchmaking & Networking)
 
 ## Addressing
-NAT — Network Address Translation: router maps private IP:port pairs to its public IP:ports (aka NAPT/PAT).
+NAT — Network Address Translation: router maps private IP:port pairs to its public IP:ports (aka NAPT/PAT).\n
 CGNAT — Carrier-Grade NAT: your ISP NATs you too; true public inbound ports often impossible.
 Port Forwarding — Manual rule on a NAT to route an external port to a specific device/port inside.
 UPnP / NAT-PMP — Protocols to auto-create port-forward rules on home routers.
