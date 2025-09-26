@@ -10,7 +10,7 @@
 - GameMsg { channel, reliable:boolean, seq, payload } <br>
 - ClockSync { t0, t1, t2, skew } <br>
 
-# Core services (interfaces)
+# Core services
 - Identity: issue(), refresh() <br>
 - Directory: register(peer|room), lookup(room|peer), list() <br>
 - Signaling: publish(msg), subscribe(room|peer), requestPairing(a,b) <br>
