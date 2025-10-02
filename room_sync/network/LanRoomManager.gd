@@ -81,7 +81,7 @@ func _set_host(peer_id: String) -> void:
 	if _current_host_id == peer_id:
 		return
 	_current_host_id = peer_id
-	var descriptor: String = _candidates.get(peer_id, {}).duplicate(true)
+	var descriptor: Dictionary = _candidates.get(peer_id, {}).duplicate(true)
 	host_changed.emit(peer_id, descriptor)
 
 func snapshot_room() -> Dictionary:
