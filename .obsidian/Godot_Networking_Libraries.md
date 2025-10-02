@@ -1,7 +1,4 @@
-# Godot Networking Libraries and Implementation Notes
-
 ## Core Networking Stack Overview
-
 Godot provides multiple layers for networking functionality that can be combined to support different matchmaking and session models:
 
 - **High-Level Multiplayer API (SceneTree Multiplayer)** – A scene replication system built on top of the low-level transport APIs. It manages RPCs, RSETs, authority assignment, and synchronizing nodes across peers. Godot 4 exposes this via `MultiplayerAPI` and associated `MultiplayerPeer` implementations.
