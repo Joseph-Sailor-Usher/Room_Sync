@@ -27,6 +27,7 @@ Networking for the Game Halo Franchise
 - [GDC Session Summary: Halo Networking](https://www.wolfire.com/blog/2011/03/GDC-Session-Summary-Halo-networking/)
 - [A Traffic Model for the Xbox Game Halo 2](https://www.wolfire.com/blog/2011/03/GDC-Session-Summary-Halo-networking/)
 - [Running the Halo Multiplayer Experience at 60fps: A Technical Art Perspective](https://www.youtube.com/watch?v=65_lBJbAxnk)
+- [Halo 2 Networking Notes: Prioritization vs. Packetization](docs/networking/halo2_prioritization_packet_manager.md)
 
 Networking for the Half Life Franchise
 - [Latency Compensating Methods in Client/Server In-game Protocol Design and Optimization](https://www.gamedevs.org/uploads/latency-compensation-in-client-server-protocols.pdf?)
