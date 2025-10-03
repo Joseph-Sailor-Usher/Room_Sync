@@ -44,32 +44,31 @@ func _wait(duration: float = demo_delay) -> void:
 		await get_tree().create_timer(duration).timeout
 
 func _on_host_changed(peer_id: String, descriptor: Dictionary) -> void:
-		var details := ""
-		if not descriptor.is_empty():
-				details = " " + JSON.stringify(descriptor)
-		
-		var safe_peer_id := "<none>"
-		if peer_id.is_empty():
-			safe_peer_id = peer_id
-		_log_event("[color=yellow]Host changed to %s[/color]%s" % [safe_peer_id, details])
-		_update_snapshot()
+	var details := "" if descriptor.is_empty() else " " + JSON.stringify(descriptor)
+	var safe_peer_id := ""
+	if peer_id.is_empty():
+		safe_peer_id = "<none>"
+	else:
+		safe_peer_id = peer_id
+	_log_event("[color=yellow]Host changed to %s[/color]%s" % [safe_peer_id, details])
+	_update_snapshot()
+
 
 func _on_roster_updated(_candidates: Dictionary) -> void:
 		_update_snapshot()
 
 func _update_snapshot() -> void:
-		var snapshot: Dictionary = manager.snapshot_room()
-		var host_id: String = str(snapshot.get("host_id", ""))
-		var candidates: Dictionary = snapshot.get("candidates", {})
-		var lines: Array[String] = []
-		lines.append("[b]Current host:[/b] %s" % (host_id if not host_id.is_empty() else "<none>"))
-		lines.append("[b]Candidates:[/b]")
-		var peer_ids: Array = candidates.keys()
-		peer_ids.sort()
-		for peer_id in peer_ids:
-				var descriptor: Dictionary = candidates.get(peer_id, {})
-				lines.append("  • %s -> %s" % [peer_id, JSON.stringify(descriptor)])
-		snapshot_label.text = "\n".join(lines)
+	var snapshot: Dictionary = manager.snapshot_room()
+	var host_id := str(snapshot.get("host_id", ""))
+	var candidates: Dictionary = snapshot.get("candidates", {})
+	var lines := []
+	lines.append("[b]Current host:[/b] %s" % ("<none>" if host_id.is_empty() else host_id))
+	lines.append("[b]Candidates:[/b]")
+	var peer_ids: Array = candidates.keys()
+	peer_ids.sort()
+	for pid in peer_ids:
+		lines.append("  • %s -> %s" % [pid, JSON.stringify(candidates.get(pid, {}))])
+	snapshot_label.bbcode_text = "\n".join(lines)  # <-- change
 
 func _log_event(message: String) -> void:
 		var timestamp := Time.get_ticks_msec() / 1000.0 - _start_time

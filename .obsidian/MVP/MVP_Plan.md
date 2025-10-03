@@ -1,7 +1,5 @@
-# MVP Plan
-
 ## Architecture Overview
-- The MVP targets Quest III LAN sessions that elect a host, advertise availability over broadcast/mDNS, and remain extensible toward cloud matchmaking while honoring the project’s affordability, fairness, performance, and low-complexity values.
+- The MVP targets LAN sessions that elect a host, advertise availability over broadcast/mDNS, and remain extensible toward cloud matchmaking while honoring the project’s affordability, fairness, performance, and low-complexity values.
 - Core domain primitives (peer IDs, room IDs, endpoints, transport parameters, session keys) and services (identity, directory, signaling, NAT, relay, authority, transport, reliability, security, time) structure the data model and subsystem responsibilities across discovery, negotiation, and synchronization layers.
 - A networking layer abstraction must default to UDP with optional TCP fallback, expose hooks for future relays/WebRTC, and respect reliability flags per message type to balance latency with correctness.
 - The replication stack stays host-authoritative with prediction/reconciliation on clients today, but the authority module needs clear seams for host migration, delegated ownership, or eventual dedicated servers/relays.

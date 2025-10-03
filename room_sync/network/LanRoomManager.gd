@@ -53,13 +53,14 @@ func _evaluate_host() -> void:
 			"score": _score_candidate(peer_id, descriptor),
 			"latency": descriptor.get("latency_ms", 0.0)
 		})
-	ranked.sort_custom(func(a, b):
-		if a.score == b.score:
-			if a.latency == b.latency:
-				return a.peer_id < b.peer_id
-			return a.latency < b.latency
-		return a.score > b.score
+	ranked.sort_custom(func(a: Dictionary, b: Dictionary):
+		if a["score"] == b["score"]:
+			if a["latency"] == b["latency"]:
+				return String(a["peer_id"]) < String(b["peer_id"])
+			return float(a["latency"]) < float(b["latency"])
+		return float(a["score"]) > float(b["score"])
 	)
+
 	# var best := ranked.front()
 	if require_local_candidate and not _candidates.has(local_peer_id):
 		push_warning("Local peer is not registered; host election may be stale")
