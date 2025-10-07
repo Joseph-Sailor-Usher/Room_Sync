@@ -60,10 +60,10 @@ flowchart TD
 ## Connect Sequence (hole-punch)
 ``` mermaid
 sequenceDiagram
-  participant A as Client A
   participant S as STUN
-  participant MM as Matchmaker
+  participant A as Client A
   participant B as Client B
+  participant MM as Matchmaker
   A->>S: STUN Binding Request
   S-->>A: srflx IP:port(A)
   B->>S: STUN Binding Request
@@ -77,6 +77,7 @@ sequenceDiagram
     B->>A: simultaneous UDP to srflx(A)
   end
   A-->>B: gameplay packets
+  B-->>A: gameplay packets
 ```
 
 
