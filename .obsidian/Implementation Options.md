@@ -72,7 +72,7 @@ sequenceDiagram
   B->>MM: POST /offer srflx(B)
   MM-->>A: srflx(B)
   MM-->>B: srflx(A)
-  par Punch
+  Punch
     A->>B: simultaneous UDP to srflx(B)
     B->>A: simultaneous UDP to srflx(A)
   end
