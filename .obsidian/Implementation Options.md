@@ -20,8 +20,8 @@ flowchart TD
 ``` mermaid
 sequenceDiagram
   participant A as Client A
-  participant MM as Matchmaker
   participant B as Client B
+  participant MM as Matchmaker
   A->>MM: POST /join(room)
   B->>MM: POST /join(room)
   MM-->>A: B's public IP:port
