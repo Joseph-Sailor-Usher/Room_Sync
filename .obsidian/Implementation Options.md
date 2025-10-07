@@ -76,8 +76,8 @@ sequenceDiagram
     A->>B: simultaneous UDP to srflx(B)
     B->>A: simultaneous UDP to srflx(A)
   end
-  A->>B: direct UDP packets
-  B->>A: direct UDP packets
+  A-->>B: direct UDP packets
+  B-->>A: direct UDP packets
 ```
 
 
