@@ -1,0 +1,131 @@
+[gd_scene load_steps=5 format=3 uid="uid://cjmb5ul1xmj2i"]
+
+[ext_resource type="Script" uid="uid://bw01balqtrqxn" path="res://Interaction Tools/ProgressionController.gd" id="1_2g2tc"]
+[ext_resource type="Script" uid="uid://bphqljbvft3b" path="res://signals/signal_demo.gd" id="2_ds4i2"]
+
+[sub_resource type="FontFile" id="FontFile_2g2tc"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_ds4i2"]
+font = SubResource("FontFile_2g2tc")
+
+[node name="Signals" type="Node"]
+
+[node name="Slides" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_2g2tc")
+
+[node name="Panel" type="Panel" parent="Slides"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_ds4i2")
+
+[node name="Label" type="Label" parent="Slides/Panel"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 90.0
+offset_bottom = 90.0
+text = "Slide 1"
+label_settings = SubResource("LabelSettings_ds4i2")
+
+[node name="Back" type="Button" parent="Slides/Panel"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 100.0
+offset_right = 200.0
+offset_bottom = 200.0
+text = "Back"
+
+[node name="Next" type="Button" parent="Slides/Panel"]
+layout_mode = 0
+offset_left = 210.0
+offset_top = 100.0
+offset_right = 310.0
+offset_bottom = 200.0
+text = "Next"
+
+[node name="Panel2" type="Panel" parent="Slides"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_ds4i2")
+
+[node name="Label" type="Label" parent="Slides/Panel2"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 90.0
+offset_bottom = 90.0
+text = "Slide 2"
+label_settings = SubResource("LabelSettings_ds4i2")
+
+[node name="Zip" type="Button" parent="Slides/Panel2"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 100.0
+offset_right = 200.0
+offset_bottom = 200.0
+text = "Zip"
+
+[node name="Bong" type="Button" parent="Slides/Panel2"]
+layout_mode = 0
+offset_left = 210.0
+offset_top = 100.0
+offset_right = 310.0
+offset_bottom = 200.0
+text = "Bong
+"
+
+[node name="Panel3" type="Panel" parent="Slides"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_ds4i2")
+
+[node name="Label" type="Label" parent="Slides/Panel3"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 90.0
+offset_bottom = 90.0
+text = "Slide 3"
+label_settings = SubResource("LabelSettings_ds4i2")
+
+[node name="Zip" type="Button" parent="Slides/Panel3"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 100.0
+offset_right = 200.0
+offset_bottom = 200.0
+text = "Zip"
+
+[node name="Zip2" type="Button" parent="Slides/Panel3"]
+layout_mode = 0
+offset_left = 210.0
+offset_top = 210.0
+offset_right = 310.0
+offset_bottom = 310.0
+text = "Zip2"
+
+[node name="Bong" type="Button" parent="Slides/Panel3"]
+layout_mode = 0
+offset_left = 210.0
+offset_top = 100.0
+offset_right = 310.0
+offset_bottom = 200.0
+text = "Bong
+"
+
+[connection signal="pressed" from="Slides/Panel/Back" to="Slides" method="_on_back_pressed"]

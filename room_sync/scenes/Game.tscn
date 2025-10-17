@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddl6jlrchlmhh"]
+
+[ext_resource type="Script" uid="uid://cy6njlo0q6v61" path="res://network/GameManager.gd" id="1_u7mhm"]
+[ext_resource type="Script" uid="uid://c4e6wm4j4n1or" path="res://network/Lobby.gd" id="2_phr2e"]
+
+[node name="Game" type="Node"]
+script = ExtResource("1_u7mhm")
+
+[node name="Lobby" type="Node" parent="."]
+script = ExtResource("2_phr2e")

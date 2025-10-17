@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "MVP/MVP_Plan.md",
+                "file": "Core Library.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "MVP_Plan"
+              "title": "Core Library"
             }
           }
         ]
@@ -171,11 +171,12 @@
   },
   "active": "b7208be6bc17d700",
   "lastOpenFiles": [
-    "Core Library.md",
     "MVP/MVP_Plan.md",
-    "GDC Session Summary_ Halo networking _ Wolfire Games Blog.pdf",
     "MVP",
+    "New folder/MVP_Plan.md",
     "New folder",
+    "Core Library.md",
+    "GDC Session Summary_ Halo networking _ Wolfire Games Blog.pdf",
     "Godot Networking Documentation/High level multiplayer — Godot Engine (3.0) documentation in English.pdf",
     "tribes-networking-model.pdf",
     "Networking_Terminology.md",

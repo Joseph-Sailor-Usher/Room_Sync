@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddl6jlrchlmhh"]
+
+[ext_resource type="Script" uid="uid://carxqqvxv4a2v" path="res://network/DiscoveryBeaconHarness.gd" id="1_qvmeg"]
+[ext_resource type="Script" uid="uid://b2tiekcco8vxq" path="res://network/DiscoveryBeacon.gd" id="2_7lq5o"]
+
+[node name="Node" type="Node"]
+script = ExtResource("1_qvmeg")
+
+[node name="DiscoveryBeacon" type="Node" parent="."]
+script = ExtResource("2_7lq5o")
+broadcast_port = null
+broadcast_addresses = null
+throttle_window_seconds = null
+max_packets_per_window = null
+payload = null
+autostart = true
+broadcast_interval_seconds = null
